@@ -1,20 +1,30 @@
-# MAD Practical 6 - Storage
-Continuing from previous weeks, you might have observed that the values generated and changes made by users are not saved. This week, you will be adding persistant storage to your app. <br/>
+# MAD Practical 3 - Event-Handler
+Continuing from last week, you will be adding interactivity to your app. <br/>
 Follow the instructions below to complete your app.
 
-1. Create your db handler class extending `SQLiteOpenHelper`. This class will create a new database upon initialization. There is a `Use`r table, whose structure follows the `User` class diagram. 20 `User` data are generated and inserted into the table. The `name`, `description` and value of `followed` are randomized, the value of `id` is an auto-increment primary key.
+1. Modify the onClickListener of left button to show a Toast message. The toast message will show `Followed` if the user click on the `Follow` button, and vice versa.
 
-<img width="137" alt="user_cd" src="https://user-images.githubusercontent.com/31364147/114372223-e21dff00-9bb3-11eb-80fe-28d712cbc170.png">
-<img width="698" alt="p6_db" src="https://user-images.githubusercontent.com/31364147/114372212-e0543b80-9bb3-11eb-9dec-092610bb346d.PNG">
+![Toast Message](/images/p2_toast.png)
 
-2.	Create a `getUsers()` function in your db handler. This function will returns all the user information from the database as a List. 
+2. Create a new Empty Activity with the following configuration,
+    * Activity Name: ListActivity
+    * Generate a Layout File: Checked
+    * Layout Name: activity_list
+    * Launcher Activity: Checked
+    * Source Language: Java
 
-    Modify your `RecyclerView` so that it is pre-populated with information from the database only.
+3. In the `activity_list` layout file, create an `ImageView`, position it in the middle of the screen.
 
-3.	Create a `updateUser()` function in your db handler. This function will receive a `User` object and update the corresponding value in the database.
+![ImageView in middle of Activity](/images/p2_img.png)
 
-    Modify your `MainActivity` so that it calls this function to update the database every time the Follow/Unfollow button is clicked.
+4. Create an `onClickListener` for the image created in previous step. Upon clicking the image, an `AlertDialog` will appear as shown in the figure below.
 
-4.	If all the above have been modified successfully, changes made to the user profile will be saved persistently. Test your app to verify this behaviour.
+![AlertDialog](/images/p2_alert.png)
 
-5.	Remove the `intent-filter` for the `MainActivity` from the `manifest`. This will allow the user to launch your app via the `ListActivity` only.
+5.	Upon clicking the `View` button, a random integer will be generated. The `MainActivity` (created in previous practical) will be launched, and the random integer is sent over.
+
+6.	Modify the `MainActivity` to display the random integer together with the name. 
+
+![Updated Profile page](/images/p2_final.png)
+
+To submit your practical, remember to commit the changes and push to remote repository.
